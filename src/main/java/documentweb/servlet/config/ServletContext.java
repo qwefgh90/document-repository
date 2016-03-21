@@ -39,7 +39,6 @@ public class ServletContext extends WebMvcConfigurerAdapter{
 
 	@Bean
 	public DataSource dataSource() throws SQLException {
-
 		BasicDataSource ds = new org.apache.commons.dbcp.BasicDataSource();
 		ds.setDriverClassName(driverClassName);
 		ds.setUrl(url + databaseName);
