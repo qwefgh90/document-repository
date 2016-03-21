@@ -7,7 +7,7 @@
     <display-name>Web.xml is changed to ServletInitializer.class</display-name>
 
     <welcome-file-list>
-        <welcome-file>/staticfiles/test.html</welcome-file>
+        <welcome-file>/staticfiles/cover.html</welcome-file>
     </welcome-file-list>
 
 

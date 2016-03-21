@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="searchModule" ng-controller="resultController as controller">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+		<title>Result</title>
+
+		<!-- Custom styles for this template -->
+		<link href="/staticfiles/css/searchresult.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="common-layout header-layout container" >
+			<div class="row">
+				<div class="col-xs-8">
+					<div class="input-group">
+						<input class="form-control" type="search" placeholder="EX) Java programming">
+						<span class="input-group-btn">
+							<input class="btn btn-default searchbt " type="submit" value="Search">
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="common-layout content-layout container" >
+			<div class="row">
+				<div class="col-xs-8 content-wrapper-outer" ng-repeat="object in controller.collection">
+					<div class="content-wrapper container-fluid">
+						<span class="col-xs-12 title" style="padding-left:0px;">{{object.title}}
+							<mark>
+								highlight
+							</mark></span>
+						<a class="col-xs-12 url" style="padding-left:0px;" href="{{object.link}}">http://localhost</a>
+						<span class="col-xs-12 block-with-text description" style="padding-left:0px;"> <small>{{object.date}}</small>{{object.description}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="common-layout" >
+
+		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
+		<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.1.js"></script>
+		<script src="/staticfiles/js/searchService.js"></script>
+		<script src="/staticfiles/js/searchController.js"></script>
+
+	</body>
+</html>

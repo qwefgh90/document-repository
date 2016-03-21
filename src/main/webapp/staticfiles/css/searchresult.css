@@ -1,0 +1,92 @@
+.header-layout {
+	padding-top: 1em;
+}
+.content-layout {
+	padding-top: 1em;
+}
+.common-layout {
+	/*padding-left: 5em;*/
+}
+
+.content-wrapper {
+	/*margin-top: 1em;*/
+	background-color: #f7f7f9;
+	border: 1px solid #e1e1e8;
+	border-radius: 4px;
+}
+
+.content-wrapper-outer{
+	padding-top: 0.5em;
+}
+
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* paragraph */
+.title{
+	font-size:18px;
+}
+.url{
+	
+}
+.description{
+	
+}
+
+/* Small devices (tablets, 768px and up) */
+/*
+ @media (min-width: 0em) and (max-width: 768px) {
+ .ellipsis {
+ width: 768px;
+ }
+ }*/
+/*
+ .form-inline{
+ width: auto;
+ display: inline;
+ }*/
+
+/* styles for '...' */
+.block-with-text {
+	/* hide text if it more than N lines  */
+	overflow: hidden;
+	/* for set '...' in absolute position */
+	position: relative;
+	/* use this value to count block height */
+	line-height: 1.2em;
+	/* max-height = line-height (1.2) * lines max number (3) */
+	max-height: 3.6em;
+	/* fix problem when last visible word doesn't adjoin right side  */
+	text-align: justify;
+	/* place for '...' */
+	margin-right: -1em;
+	padding-right: 1em;
+}
+/* create the ... */
+.block-with-text:before {
+	/* points in the end */
+	content: '...';
+	/* absolute position */
+	position: absolute;
+	/* set position to right bottom corner of block */
+	right: 0;
+	bottom: 0;
+}
+/* hide ... if we have text, which is less than or equal to max lines */
+.block-with-text:after {
+	/* points in the end */
+	content: '';
+	/* absolute position */
+	position: absolute;
+	/* set position to right bottom corner of text */
+	right: 0;
+	/* set width and height */
+	width: 1em;
+	height: 1em;
+	margin-top: 0.2em;
+	/* bg color = bg color under block */
+	background: white;
+}
