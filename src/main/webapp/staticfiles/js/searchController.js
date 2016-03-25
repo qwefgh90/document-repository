@@ -34,6 +34,12 @@ function(searchService, $timeout, $scope, $window) {
 					date : '200901010',
 					description : 'desc',
 					link : 'link'
+				},
+				{
+					title : data[0].fileName,
+					date : data[0].firstAccessTime,
+					description : data[0].fileSummary,
+					link : data[0].refUrl
 				}];
 		},
 				function(errMsg){$window.alert(self.searchString + ':fail:' + errMsg);

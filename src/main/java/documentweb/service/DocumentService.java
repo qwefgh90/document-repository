@@ -1,7 +1,8 @@
 package documentweb.service;
 
-import java.util.Optional;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class DocumentService {
 		DefaultRankAppliedToEachKeyword
 	}
 	
-	public Optional<ArrayList<DocumentModel>> search(String rawString, int offset, int limitSize, KeywordMode kmode){
+	public Optional<List<DocumentModel>> search(String rawString, int offset, int limitSize, KeywordMode kmode){
 		String[] keywords = rawString.split(" ");//space
 		ArrayList<DocumentModel> ss = null;
 		if(kmode.equals(KeywordMode.DefaultRankAppliedToAllKeywords))
