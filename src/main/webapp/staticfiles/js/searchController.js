@@ -2,19 +2,11 @@
  * @author qwefgh90
  */
 
-var app = angular.module('searchModule', ['searchServiceModule']);
+var app = angular.module('searchModule', ['searchServiceModule','angular-dotdotdot']);
 
 app.controller('resultController', ['searchService', '$scope', '$timeout', '$window',
 function(searchService, $timeout, $scope, $window) {
 
-	$(".ellipsis").dotdotdot({
-
-		ellipsis	: '... ',
-		watch: "window",
-		height		: '100px',
-		wrap		: 'word',
-	});
-	
 	var self = this;	//http://stackoverflow.com/questions/20279484/how-to-access-the-correct-this-context-inside-a-callback#
 	this.limitSize = 10;
 	this.page = 1;
@@ -70,6 +62,24 @@ function(searchService, $timeout, $scope, $window) {
 		title : 'test',
 		date : '200901010',
 		description : 'dasdfasfd asdfasdf safa sdfasdf asfasfasdfasdf asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfhrthdth asdfasdfasdfhrthdthdrh drhdtrhdrthrdthrtr dsesc',
+		link : 'link'
+	},
+	{
+		title : 'test',
+		date : '200901010',
+		description : 'dasdfasfd asdfassadfasdfsadfasddf safa sdfasdf dfasdf asdfasdfasdfasdfasdfasddfasdf asdfasdfasdfasdfasdfasddfasdf asdfasdfasdfasdfasdfasddfasdf asdfasdfasdfasdfasdfasddfasdf asdfasdfasdfasdfasdfasddfasdf asdfasdfasdfasdfasdfasddfasdf asdfasdfasdfasdfasdfasdasfasfasdfasdf asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfhrthdth asdfasdfasdfhrthdthdrh drhdtrhdrthrdthrtr dsesc',
+		link : 'link'
+	},
+	{
+		title : 'test',
+		date : '200901010',
+		description : 'dasdfasfd asdfasdf safa sdfasdf asfasfasdfas sdfasdf asfasf sdfasdf asfasf sdfasdf asfasf sdfasdf asfasf sdfasdf asfasf sdfasdf asfasf sdfasdf asfasf sdfasdf asfasf sdfasdf asfasf sdfasdf asfasf sdfasdf asfasf sdfasdf asfasf sdfasdf asfasf sdfasdf asfasf sdfasdf asfasf sdfasdf asfasf sdfasdf asfasfdf asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfhrthdth asdfasdfasdfhrthdthdrh drhdtrhdrthrdthrtr dsesc',
+		link : 'link'
+	},
+	{
+		title : 'test',
+		date : '200901010',
+		description : 'dsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsd fdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdfdsafsdf',
 		link : 'link'
 	}];
 }]);
