@@ -21,9 +21,9 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<div class="input-group">
-						<input class="form-control" type="search" placeholder="EX) Java programming">
+						<input class="form-control" type="search" placeholder="EX) Java programming" ng-model="controller.searchString">
 						<span class="input-group-btn">
-							<input class="btn btn-default searchbt " type="submit" value="Search">
+							<input class="btn btn-default searchbt " type="submit" value="Search" ng-click="controller.bindSearch()">
 						</span>
 					</div>
 				</div>
@@ -38,9 +38,13 @@
 							<mark>
 								highlight
 							</mark></span>
-						<a class="col-xs-12 url" style="padding-left:0px;" href="{{object.link}}">http://localhost</a>
-						<span class="col-xs-12 block-with-text description" style="padding-left:0px;"> <small>{{object.date}}</small>{{object.description}}</span>
-					</div>
+						<span class="col-xs-12" style="padding-left:0px;">
+					    <a class="url"
+						style="padding-left: 0px;" href="{{object.link}}">http://localhost</a>
+					 	</span>
+					 	<div class="col-xs-12 description " style=" height:80px;padding-left:0px;">
+					 	<p class="ellipsis">  <small>{{object.date}} crawled </small>{{object.description}}
+					</p></div></div>
 				</div>
 			</div>
 		</div>
@@ -48,11 +52,15 @@
 
 		</div>
 
+		<script src="/staticfiles/js/jquery-2.2.2.min.js" type="text/javascript"></script>
+		<script src="/staticfiles/js/jquery.dotdotdot.js" type="text/javascript"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
 		<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.1.js"></script>
 		<script src="/staticfiles/js/searchService.js"></script>
 		<script src="/staticfiles/js/searchController.js"></script>
+		<script>
+		</script>
 
 	</body>
 </html>

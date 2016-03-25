@@ -33,7 +33,6 @@
 	
 }
 .description{
-	
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -51,6 +50,8 @@
 
 /* styles for '...' */
 .block-with-text {
+	
+	word-wrap: break-word;
 	/* hide text if it more than N lines  */
 	overflow: hidden;
 	/* for set '...' in absolute position */
@@ -60,15 +61,18 @@
 	/* max-height = line-height (1.2) * lines max number (3) */
 	max-height: 3.6em;
 	/* fix problem when last visible word doesn't adjoin right side  */
+	/*
+	text-align: left;
 	text-align: justify;
 	/* place for '...' */
+	text-align: left;
 	margin-right: -1em;
 	padding-right: 1em;
 }
 /* create the ... */
 .block-with-text:before {
 	/* points in the end */
-	content: '...';
+	content: '';
 	/* absolute position */
 	position: absolute;
 	/* set position to right bottom corner of block */
@@ -88,5 +92,5 @@
 	height: 1em;
 	margin-top: 0.2em;
 	/* bg color = bg color under block */
-	background: white;
+	background: #f7f7f9;
 }
