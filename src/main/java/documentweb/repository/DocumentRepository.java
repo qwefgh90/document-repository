@@ -53,7 +53,6 @@ attrs: 9
   attr 6: refurl, string, bitoff 224
   attr 7: filecontent, string, bitoff 256
   attr 8: filesummary, string, bitoff 288
-
 		 */
 
 		StringBuilder builder = new StringBuilder();
@@ -67,9 +66,9 @@ attrs: 9
 				}
 			}
 		}
-		List<DocumentModel> sset = jdbcTemplate.query("SELECT filename, filesummary, refurl, firstaccesstime, fullfilepath from Document where match(?)  option ranker=bm25"
+		List<DocumentModel> sset = jdbcTemplate.query("SELECT filename, filesummary, refurl, firstaccesstime, fullfilepath from Document where match(?) limit ?,? option ranker=bm25"
 				, new BeanPropertyRowMapper<DocumentModel>(DocumentModel.class)
-				, builder.toString());
+				, builder.toString(), offset, limitSize);
 		
 		return sset;
 	}
@@ -86,9 +85,9 @@ attrs: 9
 			}
 		}
 
-		List<DocumentModel> sset = jdbcTemplate.query("SELECT filename, filesummary, refurl, firstaccesstime, fullfilepath from Document where match(?) option ranker=bm25"
+		List<DocumentModel> sset = jdbcTemplate.query("SELECT filename, filesummary, refurl, firstaccesstime, fullfilepath from Document where match(?) limit ?,? option ranker=bm25"
 				, new BeanPropertyRowMapper<DocumentModel>(DocumentModel.class)
-				, builder.toString());
+				, builder.toString(), offset, limitSize);
 		
 		return sset;
 	}

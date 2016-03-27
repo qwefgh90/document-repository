@@ -2,9 +2,9 @@
  * @author qwefgh90
  */
 
-var app = angular.module('searchServiceModule', []);
+var app = angular.module('searchServiceModule', ['searchServiceModule']);
 
-app.factory('searchService', [ '$http', '$q', function($http, $q) {
+app.factory('searchService', ['$http', '$q', function($http, $q) {
 	var search = function(keyword, offset, limitSize) {
 		var deferred = $q.defer();
 		

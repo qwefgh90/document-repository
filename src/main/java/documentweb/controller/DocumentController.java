@@ -32,6 +32,4 @@ public class DocumentController {
 		else
 			return null;
 	}
-	
-	
 }

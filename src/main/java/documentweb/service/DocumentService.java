@@ -23,7 +23,6 @@ public class DocumentService {
 	
 	public Optional<List<DocumentModel>> search(String rawString, int offset, int limitSize, KeywordMode kmode){
 		String[] keywords = rawString.split(" ");//space
-		ArrayList<DocumentModel> ss = null;
 		if(kmode.equals(KeywordMode.DefaultRankAppliedToAllKeywords))
 			return Optional.of(documentRepository.searchDocumentWhichContainsAllKeywords(keywords, offset, limitSize));
 		else if(kmode.equals(KeywordMode.DefaultRankAppliedToEachKeyword))

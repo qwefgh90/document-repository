@@ -21,9 +21,9 @@
 			<div class="row">
 				<div class="col-xs-8">
 					<div class="input-group">
-						<input class="form-control" type="search" placeholder="EX) Java programming" ng-model="controller.searchString">
+						<input class="form-control" type="search" ng-keydown="$event.which === 13 && controller.go()" focus-me="false" placeholder="EX) Java programming" ng-model="controller.searchString">
 						<span class="input-group-btn">
-							<input class="btn btn-default searchbt " type="submit" value="Search" ng-click="controller.bindSearch()">
+							<input class="btn btn-default searchbt " type="submit" value="Search" ng-click="controller.go()">
 						</span>
 					</div>
 				</div>
@@ -34,13 +34,10 @@
 			<div class="row">
 				<div class="col-xs-8 content-wrapper-outer" ng-repeat="object in controller.collection">
 					<div class="content-wrapper container-fluid">
-						<span class="col-xs-12 title" style="padding-left:0px;">{{object.title}}
-							<mark>
-								highlight
-							</mark></span>
+						<span class="col-xs-12 title" style="padding-left:0px;">{{object.title}}</span>
 						<span class="col-xs-12" style="padding-left:0px;">
 					    <a class="url"
-						style="padding-left: 0px;" href="{{object.link}}">http://localhost</a>
+						style="padding-left: 0px;" href="{{object.link}}">{{object.link}}</a>
 					 	</span>
 					 	<div class="col-xs-12 description " style="padding-left:0px;">
 					 	<p style="max-height:5.1em;line-height:1.3em" changdotdotdot>  <small>{{object.date}} crawled </small>{{object.description}}
