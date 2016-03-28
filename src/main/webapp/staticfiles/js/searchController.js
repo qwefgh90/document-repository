@@ -8,6 +8,7 @@ app.controller('resultController', ['searchService', '$scope', '$timeout', '$win
 function(searchService, $timeout, $scope, $window, $location) {
 	var self = this;	//http://stackoverflow.com/questions/20279484/how-to-access-the-correct-this-context-inside-a-callback#
 	//models..
+	this.show = false;
 	this.limitSize = 10;
 	this.searchString = '';
 	this.page = 1;
@@ -32,6 +33,7 @@ function(searchService, $timeout, $scope, $window, $location) {
 											link : data[i].refUrl
 										});
 				}
+				self.show = true;
 		},
 				function(errMsg){
 		//	$window.alert(self.searchString + ':fail:' + errMsg);

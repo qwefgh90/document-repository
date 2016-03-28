@@ -32,16 +32,16 @@
 
 		<div class="common-layout content-layout container" >
 			<div class="row">
-				<div class="col-xs-8 content-wrapper-outer" ng-repeat="object in controller.collection">
+				<div class="col-xs-8 content-wrapper-outer" ng-Cloak ng-repeat="object in controller.collection">
 					<div class="content-wrapper container-fluid">
 						<span class="col-xs-12 title" style="padding-left:0px;">{{object.title}}</span>
 						<span class="col-xs-12" style="padding-left:0px;">
-					    <a class="url"
-						style="padding-left: 0px;" href="{{object.link}}">{{object.link}}</a>
-					 	</span>
+						    <a class="url text-warning" style="padding-left: 0px;" href="{{object.link}}">{{object.link}}</a>
+						 	</span>
 					 	<div class="col-xs-12 description " style="padding-left:0px;">
-					 	<p style="max-height:5.1em;line-height:1.3em" changdotdotdot>  <small>{{object.date}} crawled </small>{{object.description}}
-					</p></div></div>
+					 		<p style="max-height:5.1em;line-height:1.3em" changdotdotdot>  <small>{{object.date | date:'yyyy-MM-dd HH:mm:ss'}}</small>{{object.description}}</p>
+					 	</div>
+					</div>
 				</div>
 			</div>
 		</div>
