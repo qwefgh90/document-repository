@@ -2,7 +2,7 @@ package documentweb.model;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
-public class DocumentModel {
+public class DocumentSearchModel {
 	long id;
 	String refUrl;
 	String refSummary;

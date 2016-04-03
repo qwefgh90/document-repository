@@ -14,7 +14,8 @@ function(searchService, $timeout, $scope, $window, $location) {
 	this.page = 1;
 	//functionality
 	this.go = function(){
-		$window.location.href='/staticfiles/search.html?' + 'keyword=' + self.searchString + '&page=' + self.page;
+		if(self.searchString.length != 0)
+			$window.location.href='/staticfiles/search.html?' + 'keyword=' + self.searchString + '&page=' + self.page;
 	};
 	this.bindSearch = function (){
 		//keyword, offset, limitSize

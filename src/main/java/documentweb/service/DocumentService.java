@@ -7,21 +7,21 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import documentweb.model.DocumentModel;
-import documentweb.repository.DocumentRepository;
+import documentweb.model.DocumentSearchModel;
+import documentweb.repository.DocumentSearchRepository;
 
 @Service
 public class DocumentService {
 	
 	@Autowired
-	DocumentRepository documentRepository;
+	DocumentSearchRepository documentRepository;
 	
 	public enum KeywordMode{
 		DefaultRankAppliedToAllKeywords,
 		DefaultRankAppliedToEachKeyword
 	}
 	
-	public Optional<List<DocumentModel>> search(String rawString, int offset, int limitSize, KeywordMode kmode){
+	public Optional<List<DocumentSearchModel>> search(String rawString, int offset, int limitSize, KeywordMode kmode){
 		String[] keywords = rawString.split(" ");//space
 		if(kmode.equals(KeywordMode.DefaultRankAppliedToAllKeywords))
 			return Optional.of(documentRepository.searchDocumentWhichContainsAllKeywords(keywords, offset, limitSize));

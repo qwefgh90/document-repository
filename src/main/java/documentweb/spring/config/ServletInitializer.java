@@ -22,7 +22,7 @@ public class ServletInitializer extends AbstractAnnotationConfigDispatcherServle
 	@Override
 	protected String[] getServletMappings() {
 		//root url
-		return new String[]{"/"};
+		return new String[]{"/"}; 
 	}
 
 }
