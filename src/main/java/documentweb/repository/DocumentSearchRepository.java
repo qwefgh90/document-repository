@@ -79,7 +79,7 @@ attrs: 9
 			}
 		}
 
-		List<DocumentSearchModel> sset = jdbcTemplate.query("SELECT filename, filesummary, refurl, firstaccesstime, fullfilepath from Document where match(?) limit ?,? option ranker=bm25"
+		List<DocumentSearchModel> sset = jdbcTemplate.query("SELECT id, fileName, firstAccessTime, fullFilePath, fileHash, isEUCKRPage, isDownloading, refSummary, refTitle, refUrl,retryCount, fileContent, fileSummary from Document where match(?) limit ?,? option ranker=bm25"
 				, new BeanPropertyRowMapper<DocumentSearchModel>(DocumentSearchModel.class)
 				, builder.toString(), offset, limitSize);
 		

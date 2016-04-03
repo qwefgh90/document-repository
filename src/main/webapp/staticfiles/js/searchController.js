@@ -8,7 +8,6 @@ app.controller('resultController', ['searchService', '$scope', '$timeout', '$win
 function(searchService, $timeout, $scope, $window, $location) {
 	var self = this;	//http://stackoverflow.com/questions/20279484/how-to-access-the-correct-this-context-inside-a-callback#
 	//models..
-	this.show = false;
 	this.limitSize = 10;
 	this.searchString = '';
 	this.page = 1;
@@ -31,27 +30,14 @@ function(searchService, $timeout, $scope, $window, $location) {
 											title : data[i].fileName,
 											date : data[i].firstAccessTime,
 											description : data[i].fileSummary,
-											link : data[i].refUrl
+											link : data[i].refUrl,
+											downloadlink : '/download/' + data[i].fileHash + '/' + $.base64.encode(data[i].fileName)
 										});
 				}
-				self.show = true;
 		},
 				function(errMsg){
-		//	$window.alert(self.searchString + ':fail:' + errMsg);
-
 				self.collection = [{
 					title : 'fail1',
-					date : '200901010',
-					description : 'desc',
-					link : 'link'
-				},
-				{
-					title : 'fail2',
-					date : '200901010',
-					description : 'desc',
-					link : 'link'
-				},{
-					title : 'fail3',
 					date : '200901010',
 					description : 'desc',
 					link : 'link'

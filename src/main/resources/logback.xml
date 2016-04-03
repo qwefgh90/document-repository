@@ -34,17 +34,17 @@
 			<onMismatch>ACCEPT</onMismatch>
 		</filter>
 	</appender>
-
+<!-- 
 	<logger name="documentweb" level="INFO">
 		<appender-ref ref="STDOUT" />
 	</logger>
-	
+	 -->
 	<logger name="documentweb" level="INFO">
 		<appender-ref ref="INFO-FILE" />
 		<appender-ref ref="WARN-FILE" />
 	</logger>
 	
-	<root level="INFO">
+	<root level="ERROR">
 		<appender-ref ref="STDOUT" />
 	</root>
 	

@@ -27,9 +27,9 @@ import documentweb.service.FileDownloadService;
 
 @Controller
 public class DocumentController {
-	
+
 	Logger LOG = LoggerFactory.getLogger(DocumentController.class);
-	
+
 	@Autowired
 	DocumentService documentService;
 	@Autowired
@@ -48,8 +48,7 @@ public class DocumentController {
 	}
 
 	@RequestMapping(path = "/download/{fileHash}/{fileName}", method = RequestMethod.GET)
-	void downloadFile(@PathVariable String fileHash, @PathVariable String fileName,
-			HttpServletResponse response) {
+	void downloadFile(@PathVariable String fileHash, @PathVariable String fileName, HttpServletResponse response) {
 		try {
 			fileName = new String(Base64.getDecoder().decode(fileName), "utf-8");
 		} catch (UnsupportedEncodingException e2) {
@@ -59,13 +58,13 @@ public class DocumentController {
 				LOG.warn(e.fillInStackTrace().toString());
 			}
 		}
-		
+
 		Optional<InputStream> result = fileDownloadService.getFileBinary(fileHash, fileName);
 		int index = fileName.lastIndexOf('.');
-		index = (index != -1 && index==fileName.length()-1) ? -1 : index+1; 
-		
+		index = (index != -1 && index == fileName.length() - 1) ? -1 : index + 1;
+
 		response.setContentType("application/" + (index != -1 ? fileName.substring(index) : '*'));
-		response.setHeader("Content-Disposition", "attachment; filename=" + fileName); 
+		response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 		if (result.isPresent()) {
 			try {
 				IOUtils.copy(result.get(), response.getOutputStream());
@@ -73,14 +72,14 @@ public class DocumentController {
 			} catch (IOException e) {
 				LOG.warn(e.fillInStackTrace().toString());
 				try {
-					response.sendError(404);
+					response.sendError(500);
 				} catch (IOException e1) {
 					LOG.warn(e.fillInStackTrace().toString());
 				}
 			}
-		}else{
+		} else {
 			try {
-				response.sendError(404);
+				response.sendError(204);
 			} catch (IOException e) {
 				LOG.warn(e.fillInStackTrace().toString());
 			}

@@ -73,7 +73,8 @@ public class RepositoryTest {
 		List<DocumentSearchModel> list = repo.searchDocumentWhichContainsEachKeyword(new String[] { "company" }, 0, 20);
 		logger.info("" + list.size());
 		for (DocumentSearchModel model : list) {
-			logger.info(model.toString());
+			//logger.info(model.toString());
+			logger.info(model.getFileHash());
 		}
 	}
 
@@ -112,11 +113,15 @@ public class RepositoryTest {
 		
 		// Spring Controller TEST
 		String url = "/download/DRY=DONTREPEATYOURCODE/"+new String(Base64.getEncoder().encode("test.hwp".getBytes()),"utf-8");
+		String url2 = "/download/NOR/"+new String(Base64.getEncoder().encode("test.hwp".getBytes()),"utf-8");
 
 		mockMvc.perform(get(url).accept("application/*"))
 		.andExpect(status().isOk())
 		.andExpect(content().bytes(new byte[]{(byte)0xff, (byte)0xaa}))
 		.andExpect(content().contentType("application/hwp"));
+		
+		mockMvc.perform(get(url2).accept("application/*"))
+		.andExpect(status().isNoContent());
 	}
 
 	@After
